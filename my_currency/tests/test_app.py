@@ -6,22 +6,6 @@ from my_currency.exceptions import NoProviderException
 from my_currency.models import CurrencyExchangeRate, Provider
 
 
-# @pytest.mark.django_db
-# def test_get_currency_rates(api_client, fill_initial_data):
-#     # We need to fill initial data to have providers
-#     url = reverse('currency-rates-list') 
-#     params = {
-#         'source_currency': 'USD',
-#         'date_from': '2023-10-01',
-#         'date_to': '2023-10-02'
-#     }
-#     response = api_client.get(url, params)
-#     from my_currency import logger
-#     logger.info(response.data)
-#     assert response.status_code == status.HTTP_400_BAD_REQUEST
-#     assert response.data['message'] == NoProviderException.default_message
-
-
 @pytest.mark.django_db
 def test_get_currency_rates_no_providers(api_client):
     # We need to fill initial data to have providers
